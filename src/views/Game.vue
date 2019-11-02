@@ -1,31 +1,19 @@
 <template>
     <div class="game">
-        <div class="codes">
-            <CodeNode class="flex_item"></CodeNode>
-            <CodeNode class="flex_item"></CodeNode>
-            <CodeNode class="flex_item"></CodeNode>
-            <CodeNode class="flex_item"></CodeNode>
-        </div>
+        <codes></codes>
     </div>
 </template>
 
 <script>
-    import CodeNode from '../components/CodeNode'
+    import Codes from '../components/Codes'
 
     export default {
         name: "Game",
         components: {
-            CodeNode,
+            Codes,
         }
     }
 </script>
 
 <style scoped>
-    .codes {
-        display: flex;
-    }
-
-    .flex_item {
-        flex-grow: 1;
-    }
 </style>
