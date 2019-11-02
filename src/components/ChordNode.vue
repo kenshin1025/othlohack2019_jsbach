@@ -18,6 +18,14 @@
                 is_bg_cold : false,
             }
         },
+        beforeUpdate(){
+            console.log(this.cursor_bar);
+            console.log(this.chord_name);
+            this.$store.commit('update_selecting_chords', {
+                chord: this.chord_name,
+                cursor: this.cursor_bar
+            });
+        },
         methods: {
             up_chord(){
                 if(this.selecting_chord < chord_list.length-1) {
@@ -40,7 +48,7 @@
                 }
             }
         },
-        // props:[four_beet_bg]
+        props:["cursor_bar"]
     }
 </script>
 

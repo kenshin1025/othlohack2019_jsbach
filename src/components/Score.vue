@@ -56,7 +56,6 @@
                 beat: 7,//八分音符,
                 bpm: 180,//テンポ
                 timeCounter: null,
-                selected_chords: ["C", "C", "C", "C"]
             };
         },
 
