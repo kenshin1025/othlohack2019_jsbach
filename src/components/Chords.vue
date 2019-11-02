@@ -1,9 +1,8 @@
 <template>
     <div class="chords">
-        <ChordNode class="flex_item"></ChordNode>
-        <ChordNode class="flex_item"></ChordNode>
-        <ChordNode class="flex_item"></ChordNode>
-        <ChordNode class="flex_item"></ChordNode>
+        <template v-for="i in 4">
+            <ChordNode class="flex_item" :cursor_bar="i-1"></ChordNode>
+        </template>
     </div>
 </template>
 
