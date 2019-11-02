@@ -1,13 +1,13 @@
 <template>
     <div id="score">
-        <codes></codes>
+        <chords></chords>
         <button v-on:click="start">start</button>
         bar:{{this.bar}}<br>
         beet:{{this.beat}}
     </div>
 </template>
 <script>
-    import Codes from '../components/Codes'
+    import Chords from '../components/Chords'
 
     import A3 from "./../assets/A3.mp3"
     import B3 from "./../assets/B3.mp3"
@@ -48,7 +48,7 @@
 
         name: "Score",
         components: {
-            Codes,
+            Chords,
         },
         data() {
             return {
