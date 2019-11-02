@@ -1,8 +1,5 @@
 var music = [new Audio('../piano/C3.wav'), new Audio(), new Audio()];
   function play() {
-    // music.loop = false;
-    // music.play();
-  //new Audio("./D4.wav").play();
   playChord('F');
   }
   function stop() {
