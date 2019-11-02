@@ -43,10 +43,11 @@
                 return {
                     bg_warm : this.chord_name.length === 1,
                     bg_cold : this.chord_name.length === 2,
+                    active : this.is_active,
                 }
             }
         },
-        props:["cursor_bar"]
+        props:["cursor_bar", "is_active"]
     }
 </script>
 
@@ -55,6 +56,9 @@
         background-color: #d16b16;
     }
     .bg_cold{
-        background-color: #0168b3
+        background-color: #0168b3;
+    }
+    .active{
+        background-color: white;
     }
 </style>

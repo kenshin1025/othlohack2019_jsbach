@@ -1,6 +1,6 @@
 <template>
     <div id="score">
-        <chords></chords>
+        <chords :now_bar="this.bar"></chords>
         <Beats></Beats>
         <button v-on:click="start">start</button>
         bar:{{this.bar}}<br>
