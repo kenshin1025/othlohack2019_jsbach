@@ -1,16 +1,16 @@
 <template>
     <div class="game">
-        <codes></codes>
+        <score></score>
     </div>
 </template>
 
 <script>
-    import Codes from '../components/Codes'
+    import Score from '../components/Score'
 
     export default {
         name: "Game",
         components: {
-            Codes,
+            Score
         }
     }
 </script>
