@@ -18,9 +18,6 @@
                 is_bg_cold : false,
             }
         },
-        beforeUpdate(){
-            // this.code_name = code_list[this.selecting_code];
-        },
         methods: {
             up_code(){
                 if(this.selecting_code < code_list.length-1) {
