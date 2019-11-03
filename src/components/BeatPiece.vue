@@ -1,6 +1,5 @@
 <template>
   <div class="beatPiece">
-    {{ cursor_beats }}
     <template v-for="(note, i) in this.notes">
       <BeatNode
         class="flex_item"
@@ -20,7 +19,7 @@ export default {
   components: {
     BeatNode
   },
-  props: ["notes", "beatType", "now_beats", "cursor_beats"]
+  props: ["notes", "beatType", "now_beats"]
 };
 </script>
 

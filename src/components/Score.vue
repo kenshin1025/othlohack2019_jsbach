@@ -81,6 +81,15 @@ export default {
       if (this.$store.state.selecting_kick[this.beat]) {
         this.playBeats(kick_audio);
       }
+      if (this.$store.state.selecting_snare[this.beat]) {
+        this.playBeats(snare_audio);
+      }
+      if (this.$store.state.selecting_chihat[this.beat]) {
+        this.playBeats(chihat_audio);
+      }
+      if (this.$store.state.selecting_ohihat[this.beat]) {
+        this.playBeats(ohihat_audio);
+      }
       if (this.beat == 8) {
         this.beat = 0;
         this.bar += 1;
@@ -117,70 +126,11 @@ export default {
       beat.play();
     }
   }
-};</script
->>
-
-        name: "Score",
-        components: {
-            Chords,
-        },
-        data() {
-            return {
-                bar: -1,//小節
-                beat: 7,//八分音符,
-                bpm: 120,//テンポ
-                timeCounter: null,
-                selected_chords: ["C", "C", "C", "C"]
-            };
-        },
-
-        beforeRouteEnter(to, from, next) {
-            next(vm => {
-                vm.initialize(); // 初期化処理
-                next();
-            });
-        },
-
-        methods: {
-            count: function () {
-                this.beat += 1
-                if (this.beat == 8) {
-                    this.beat = 0
-                    this.bar += 1;
-                    if (this.bar == 4) {
-                        this.bar = 0
-                    }
-                    this.playChord(this.selected_chords[this.bar]);
-                }
-            },
-            start: function () {
-                let self = this;
-                let interval = (60 / this.bpm) / 2;
-                console.log(interval);
-                this.timeCounter = setInterval(function () {
-                    self.count()
-                }, interval * 1000)
-                this.timerOn = true; //timerがOFFであることを状態として保持
-            },
-            playChord(chord) {
-                Object.keys(SOUNDS).forEach(function (key) {
-                    SOUNDS[key].forEach(function (audio) {
-                        audio.pause();
-                        audio.currentTime = 0;
-                    })
-                });
-                for (let i = 0; i < 3; i++) {
-                    // SOUNDS[chord][i].stop();
-                    SOUNDS[chord][i].play();
-                }
-            },
-        }
-    };
-</script>>
+};
+</script>
 
 <style scoped>
-  .brank{
-    /* margin: 100px; */
-  }
-
+.brank {
+  /* margin: 100px; */
+}
 </style>

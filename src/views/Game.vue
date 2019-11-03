@@ -1,6 +1,5 @@
 <template>
   <div class="game">
-    {{ $store.state.selecting_chords }}
     <score></score>
   </div>
 </template>
