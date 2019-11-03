@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="inline">
-      <div>chord</div>
+      <div class="index">chord</div>
       <draggable
         class="flex"
         v-model="itemsChord"
@@ -25,7 +25,7 @@
 
     </div>
     <div class="inline">
-      <h3>OHihat</h3>
+      <div class="index">OHihat</div>
       <draggable
         class="flex"
         v-model="itemsOHihat"
@@ -49,7 +49,7 @@
 
     </div>
 <div class="inline">
-  <h3>CHihat</h3>
+  <div class="index">CHihat</div>
   <draggable
     class="flex"
     v-model="itemsCHihat"
@@ -73,7 +73,7 @@
 
 </div>
     <div class="inline">
-      <h3>Snare</h3>
+      <div class="index">Snare</div>
       <draggable
         class="flex"
         v-model="itemsSnare"
@@ -97,6 +97,7 @@
     </div>
 
 <div class="inline">
+      <div class="index">Kick</div>
   <draggable
     class="flex"
     v-model="itemsKick"
@@ -119,9 +120,9 @@
   </draggable>
 
 </div>
-    <h3>Kick</h3>
 
-    <h3>ぴーす</h3>
+
+    <div class="index">ぴーす</div>
     <draggable
       class="flex"
       v-model="itemsB"
@@ -277,6 +278,8 @@ export default {
   /*background-color: #ffffff;*/
   width: 25%;
   padding: 3px;
+  display: flex;
+  flex-flow: row;
 }
 
 .item:hover {
@@ -289,7 +292,9 @@ export default {
 .inline {
   display: flex;
   flex-flow:
-
+}
+.index{
+  font-size: x-large;
 }
 .beatPiece {
 }

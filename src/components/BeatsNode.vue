@@ -25,6 +25,9 @@ export default {
 </script>
 
 <style scoped>
+.set_bg{
+  display: flex;
+}
 .not_active {
   background-color: silver;
 }
