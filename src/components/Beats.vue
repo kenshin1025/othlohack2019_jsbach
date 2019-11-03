@@ -1,180 +1,136 @@
 <template>
   <div>
-    <div class="inline">
-      <h3>chord</h3>
-      <draggable
-        v-if="edit"
-        class="flex"
-        v-model="itemsChord"
-        group="myGroup"
-        @start="drag = true"
-        :move="checkMove"
-        @end="drag = false"
-        :options="options"
-      >
-        <div class="item" v-for="(item, i) in itemsChord" :key="item.id">
-          <BeatPieces
-            class="beatPiece"
-            :notes="item.notes"
-            :beatType="item.type"
-            :now_beats="now_beats"
-          ></BeatPieces>
-        </div>
-      </draggable>
-      <div class="flex">
-        <div
-          v-if="!edit"
-          class="item"
-          v-for="(note, i) in chordArray"
-          :key="note.id"
-        >
-          <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
-        </div>
+    <h3>chord</h3>
+    <draggable
+      class="flex"
+      v-model="itemsChord"
+      group="myGroup"
+      @start="drag = true"
+      :move="checkMove"
+      @end="drag = false"
+      :options="options"
+    >
+      <div class="item" v-for="(item, i) in itemsChord" :key="i">
+        <BeatPieces
+          class="beatPiece"
+          :notes="item.notes"
+          :beatType="item.type"
+          :items = itemsChord
+          :now_beats="now_beats"
+          :index="i"
+        ></BeatPieces>
       </div>
+    </draggable>
 
-      <h3>OHihat</h3>
-      <draggable
-        v-if="edit"
-        class="flex"
-        v-model="itemsOHihat"
-        group="myGroup"
-        @start="drag = true"
-        :move="checkMove"
-        @end="drag = false"
-        :options="options"
-      >
-        <div class="item" v-for="(item, i) in itemsOHihat" :key="item.id">
-          <BeatPieces
-            class="beatPiece"
-            :notes="item.notes"
-            :beatType="item.type"
-            :now_beats="now_beats"
-          ></BeatPieces>
-        </div>
-      </draggable>
-      <div class="flex">
-        <div
-          v-if="!edit"
-          class="item"
-          v-for="(note, i) in ohihatArray"
-          :key="note.id"
-        >
-          <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
-        </div>
+    <h3>OHihat</h3>
+    <draggable
+      class="flex"
+      v-model="itemsOHihat"
+      group="myGroup"
+      @start="drag = true"
+      :move="checkMove"
+      @end="drag = false"
+      :options="options"
+    >
+      <div class="item" v-for="(item, i) in itemsOHihat" :key="i">
+        <BeatPieces
+          class="beatPiece"
+          :notes="item.notes"
+          :beatType="item.type"
+          :items = itemsOHihat
+          :now_beats="now_beats"
+          :index="i"
+        ></BeatPieces>
       </div>
+    </draggable>
 
-      <h3>CHihat</h3>
-      <draggable
-        v-if="edit"
-        class="flex"
-        v-model="itemsCHihat"
-        group="myGroup"
-        @start="drag = true"
-        :move="checkMove"
-        @end="drag = false"
-        :options="options"
-      >
-        <div class="item" v-for="(item, i) in itemsCHihat" :key="item.id">
-          <BeatPieces
-            class="beatPiece"
-            :notes="item.notes"
-            :beatType="item.type"
-            :now_beats="now_beats"
-          ></BeatPieces>
-        </div>
-      </draggable>
-      <div class="flex">
-        <div
-          v-if="!edit"
-          class="item"
-          v-for="(note, i) in chihatArray"
-          :key="note.id"
-        >
-          <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
-        </div>
+    <h3>CHihat</h3>
+    <draggable
+      class="flex"
+      v-model="itemsCHihat"
+      group="myGroup"
+      @start="drag = true"
+      :move="checkMove"
+      @end="drag = false"
+      :options="options"
+    >
+      <div class="item" v-for="(item, i) in itemsCHihat" :key="i">
+        <BeatPieces
+          class="beatPiece"
+          :notes="item.notes"
+          :beatType="item.type"
+          :items = itemsCHihat
+          :now_beats="now_beats"
+          :index="i"
+        ></BeatPieces>
       </div>
+    </draggable>
 
-      <h3>Snare</h3>
-      <draggable
-        v-if="edit"
-        class="flex"
-        v-model="itemsSnare"
-        group="myGroup"
-        @start="drag = true"
-        :move="checkMove"
-        @end="drag = false"
-        :options="options"
-      >
-        <div class="item" v-for="(item, i) in itemsSnare" :key="item.id">
-          <BeatPieces
-            class="beatPiece"
-            :notes="item.notes"
-            :beatType="item.type"
-            :now_beats="now_beats"
-          ></BeatPieces>
-        </div>
-      </draggable>
-      <div class="flex">
-        <div
-          v-if="!edit"
-          class="item"
-          v-for="(note, i) in snareArray"
-          :key="note.id"
-        >
-          <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
-        </div>
+    <h3>Snare</h3>
+    <draggable
+      class="flex"
+      v-model="itemsSnare"
+      group="myGroup"
+      @start="drag = true"
+      :move="checkMove"
+      @end="drag = false"
+      :options="options"
+    >
+      <div class="item" v-for="(item, i) in itemsSnare" :key="i">
+        <BeatPieces
+          class="beatPiece"
+          :notes="item.notes"
+          :beatType="item.type"
+          :items = itemsSnare
+          :now_beats="now_beats"
+          :index="i"
+        ></BeatPieces>
       </div>
+    </draggable>
 
-      <h3>Kick</h3>
-      <draggable
-        v-if="edit"
-        class="flex"
-        v-model="itemsKick"
-        group="myGroup"
-        @start="drag = true"
-        :move="checkMove"
-        @end="drag = false"
-        :options="options"
-      >
-        <div class="item" v-for="(item, i) in itemsKick" :key="item.id">
-          <BeatPieces
-            class="beatPiece"
-            :notes="item.notes"
-            :beatType="item.type"
-            :now_beats="now_beats"
-          ></BeatPieces>
-        </div>
-      </draggable>
-      <div class="flex">
-        <div
-          v-if="!edit"
-          class="item"
-          v-for="(note, i) in kickArray"
-          :key="note.id"
-        >
-          <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
-        </div>
+    <h3>Kick</h3>
+    <draggable
+      class="flex"
+      v-model="itemsKick"
+      group="myGroup"
+      @start="drag = true"
+      :move="checkMove"
+      @end="drag = false"
+      :options="options"
+    >
+      <div class="item" v-for="(item, i) in itemsKick" :key="i">
+        <BeatPieces
+          class="beatPiece"
+          :notes="item.notes"
+          :beatType="item.type"
+          :items = itemsKick
+          :now_beats="now_beats"
+          :index="i"
+        ></BeatPieces>
       </div>
+    </draggable>
 
-      <h3>グループB</h3>
-      <draggable
-        class="flex"
-        v-model="itemsB"
-        :group="{ name: 'myGroup', pull: 'clone', put: false }"
-        :move="checkMove"
-        @start="drag = true"
-        @end="drag = false"
-        :options="options"
-      >
-        <div class="item" v-for="item in itemsB" :key="item.id">
-          <BeatPieces
-            class="beatPiece"
-            :notes="item.notes"
-            :beatType="item.type"
-          ></BeatPieces>
-        </div>
-      </draggable>
-    </div>
+    <h3>ぴーす</h3>
+    <draggable
+      class="flex"
+      v-model="itemsB"
+      :group="{ name: 'myGroup', pull: 'clone', put: false }"
+      :move="checkMove"
+      @start="drag = true"
+      @end="drag = false"
+      :options="options"
+    >
+      <div class="item" v-for="(item,i) in itemsB" :key="item.id">
+        <BeatPieces
+          class="beatPiece"
+          :notes="item.notes"
+          :beatType="item.type"
+          :items = "null"
+          :now_beats="now_beats"
+          :index="i"
+        ></BeatPieces>
+      </div>
+    </draggable>
   </div>
 </template>
 
