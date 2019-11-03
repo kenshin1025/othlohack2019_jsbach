@@ -2,7 +2,6 @@
   <div>
     <h3>OHihat</h3>
     <draggable
-      v-if="edit"
       class="flex"
       v-model="itemsOHihat"
       group="myGroup"
@@ -11,25 +10,16 @@
       @end="drag = false"
       :options="options"
     >
-      <div class="item" v-for="(item, i) in itemsOHihat" :key="item.id">
+      <div class="item" v-for="(item, i) in itemsOHihat" :key="i">
         <BeatPieces
           class="beatPiece"
           :notes="item.notes"
           :beatType="item.type"
+          :items = "itemsOHihat"
           :now_beats="now_beats"
         ></BeatPieces>
       </div>
     </draggable>
-    <div class="flex">
-      <div
-        v-if="!edit"
-        class="item"
-        v-for="(note, i) in ohihatArray"
-        :key="note.id"
-      >
-        <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
-      </div>
-    </div>
 
     <h3>CHihat</h3>
     <draggable
@@ -52,12 +42,7 @@
       </div>
     </draggable>
     <div class="flex">
-      <div
-        v-if="!edit"
-        class="item"
-        v-for="(note, i) in chihatArray"
-        :key="note.id"
-      >
+      <div v-if="!edit" class="item" v-for="(note, i) in chihatArray" :key="note.id">
         <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
       </div>
     </div>
@@ -83,12 +68,7 @@
       </div>
     </draggable>
     <div class="flex">
-      <div
-        v-if="!edit"
-        class="item"
-        v-for="(note, i) in chihatArray"
-        :key="note.id"
-      >
+      <div v-if="!edit" class="item" v-for="(note, i) in chihatArray" :key="note.id">
         <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
       </div>
     </div>
@@ -114,12 +94,7 @@
       </div>
     </draggable>
     <div class="flex">
-      <div
-        v-if="!edit"
-        class="item"
-        v-for="(note, i) in chihatArray"
-        :key="note.id"
-      >
+      <div v-if="!edit" class="item" v-for="(note, i) in chihatArray" :key="note.id">
         <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
       </div>
     </div>

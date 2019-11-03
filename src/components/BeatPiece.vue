@@ -19,7 +19,13 @@ export default {
   components: {
     BeatNode
   },
-  props: ["notes", "beatType", "now_beats"]
+computed:{
+    index: function () {
+        
+    }
+},
+  
+  props: ["notes", "beatType", "now_beats","itemsOHihat"]
 };
 </script>
 
