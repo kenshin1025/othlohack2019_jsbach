@@ -1,8 +1,13 @@
 <template>
   <div class="beatPiece">
-    <template v-for="i in this.notes">
-       <BeatNode class="flex_item" :sound="i"></BeatNode>
-       <!--<ChordNode class="flex_item" :cursor_bar="i-1"></ChordNode>-->
+    {{ cursor_beats }}
+    <template v-for="(note, i) in this.notes">
+      <BeatNode
+        class="flex_item"
+        :sound="note"
+        :is_active="now_beats === i"
+      ></BeatNode>
+      <!--<ChordNode class="flex_item" :cursor_bar="i-1"></ChordNode>-->
     </template>
   </div>
 </template>
@@ -13,9 +18,9 @@ import BeatNode from "../components/BeatsNode";
 export default {
   name: "BeatPiece",
   components: {
-      BeatNode
+    BeatNode
   },
-  props:["notes","beatType"]
+  props: ["notes", "beatType", "now_beats", "cursor_beats"]
 };
 </script>
 
@@ -23,6 +28,7 @@ export default {
 .beatPiece {
   display: flex;
 }
+
 .flex_item {
   flex-grow: 1;
 }

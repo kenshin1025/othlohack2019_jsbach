@@ -5,15 +5,12 @@
 </template>
 
 <script>
-
 export default {
-  name: 'home',
+  name: "home"
   // components: {
   //   HelloWorld
   // }
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
