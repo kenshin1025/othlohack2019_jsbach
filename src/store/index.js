@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     selecting_chords: ["C", "C", "C", "C"],
+    selecting_beating_chord: [0, 0, 0, 0, 0, 0, 0, 0],
     selecting_kick: [0, 0, 0, 0, 0, 0, 0, 0],
     selecting_ohihat: [0, 0, 0, 0, 0, 0, 0, 0],
     selecting_chihat: [0, 0, 0, 0, 0, 0, 0, 0],
@@ -30,6 +31,9 @@ export default new Vuex.Store({
     },
     set_selecting_snare(state, snareArray) {
       Vue.set(state, "selecting_snare", snareArray);
+    },
+    set_selecting_beating_chord(state, chordArray) {
+      Vue.set(state, "selecting_beating_chord", chordArray);
     }
   },
   actions: {},

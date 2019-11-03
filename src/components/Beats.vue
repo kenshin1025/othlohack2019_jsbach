@@ -1,5 +1,36 @@
 <template>
   <div>
+    <h3>chord</h3>
+    <draggable
+      v-if="edit"
+      class="flex"
+      v-model="itemsChord"
+      group="myGroup"
+      @start="drag = true"
+      :move="checkMove"
+      @end="drag = false"
+      :options="options"
+    >
+      <div class="item" v-for="(item, i) in itemsChord" :key="item.id">
+        <BeatPieces
+          class="beatPiece"
+          :notes="item.notes"
+          :beatType="item.type"
+          :now_beats="now_beats"
+        ></BeatPieces>
+      </div>
+    </draggable>
+    <div class="flex">
+      <div
+        v-if="!edit"
+        class="item"
+        v-for="(note, i) in chordArray"
+        :key="note.id"
+      >
+        <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
+      </div>
+    </div>
+
     <h3>OHihat</h3>
     <draggable
       v-if="edit"
@@ -86,7 +117,7 @@
       <div
         v-if="!edit"
         class="item"
-        v-for="(note, i) in chihatArray"
+        v-for="(note, i) in snareArray"
         :key="note.id"
       >
         <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
@@ -117,7 +148,7 @@
       <div
         v-if="!edit"
         class="item"
-        v-for="(note, i) in chihatArray"
+        v-for="(note, i) in kickArray"
         :key="note.id"
       >
         <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
@@ -139,7 +170,6 @@
           class="beatPiece"
           :notes="item.notes"
           :beatType="item.type"
-          :now_beats="now_beats"
         ></BeatPieces>
       </div>
     </draggable>
@@ -153,6 +183,9 @@ import BeatsNode from "./BeatsNode";
 
 export default {
   name: "Beats",
+    // computed(){
+    //
+    // },
 
   components: {
     draggable,
@@ -160,6 +193,7 @@ export default {
     BeatsNode
   },
   beforeUpdate() {
+    this.makeChordArray();
     this.makeKickArray();
     this.makeSnareArray();
     this.makeChihatArray();
@@ -168,14 +202,17 @@ export default {
 
   data() {
     return {
+        n: 0,
       options: {
         group: "myGroup",
         animation: 200
       },
+      itemsChord: [],
       itemsKick: [],
       itemsSnare: [],
       itemsCHihat: [],
       itemsOHihat: [],
+      chordArray: [],
       kickArray: [],
       snareArray: [],
       chihatArray: [],
@@ -204,6 +241,15 @@ export default {
       if (length == 800) return true;
       if (length > 800) return false;
       return true;
+    },
+    makeChordArray() {
+      this.chordArray = [];
+      this.itemsChord.forEach(item => {
+        item.notes.forEach(note => {
+          this.chordArray.push(note);
+        });
+      });
+      this.$store.commit("set_selecting_beating_chord", this.chordArray);
     },
     makeKickArray() {
       this.kickArray = [];

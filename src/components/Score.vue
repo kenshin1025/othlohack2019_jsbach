@@ -61,8 +61,8 @@ export default {
   data() {
     return {
       edit: true,
-      bar: -1, //小節
-      beat: 7, //八分音符,
+      bar: 0, //小節
+      beat: 0, //八分音符,
       bpm: 180, //テンポ
       timeCounter: null
     };
@@ -77,7 +77,6 @@ export default {
 
   methods: {
     count: function() {
-      this.beat += 1;
       if (this.$store.state.selecting_kick[this.beat]) {
         this.playBeats(kick_audio);
       }
@@ -90,6 +89,10 @@ export default {
       if (this.$store.state.selecting_ohihat[this.beat]) {
         this.playBeats(ohihat_audio);
       }
+      if (this.$store.state.selecting_beating_chord[this.beat]) {
+        this.playChord(this.$store.state.selecting_chords[this.bar]);
+      }
+      this.beat += 1;
       if (this.beat == 8) {
         this.beat = 0;
         this.bar += 1;

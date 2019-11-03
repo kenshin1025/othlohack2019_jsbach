@@ -53,7 +53,6 @@ export default {
 
 <style scoped>
 .chord_size {
-  height: 90px;
   width: 25%;
   transition: all 300ms 0s ease;
   border-left: solid 1px #ffffff;
