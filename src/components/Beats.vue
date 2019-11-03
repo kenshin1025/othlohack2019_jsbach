@@ -141,9 +141,9 @@ import BeatsNode from "./BeatsNode";
 
 export default {
   name: "Beats",
-    // computed(){
-    //
-    // },
+  // computed(){
+  //
+  // },
 
   components: {
     draggable,
@@ -160,7 +160,7 @@ export default {
 
   data() {
     return {
-        n: 0,
+      n: 0,
       options: {
         group: "myGroup",
         animation: 200
@@ -253,6 +253,7 @@ export default {
 <style scoped>
 .flex {
   display: flex;
+  /* width: 200%; */
 }
 
 .item {
@@ -263,6 +264,8 @@ export default {
   /*border: 1px solid #7f7f7f;*/
   /*border-radius: 10px;*/
   /*background-color: #ffffff;*/
+  width: 25%;
+  padding: 3px;
 }
 
 .item:hover {
@@ -272,7 +275,9 @@ export default {
 .item:active {
   cursor: grabbing;
 }
-
+.inline {
+  /* float: left; */
+}
 .beatPiece {
 }
 </style>

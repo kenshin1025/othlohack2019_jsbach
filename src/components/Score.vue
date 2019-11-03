@@ -1,10 +1,16 @@
 <template>
-  <div id="score">
-    <chords :now_bar="this.bar"></chords>
-    <Beats :now_beats="this.beat" :edit="this.edit"></Beats>
-    <button v-on:click="start">start</button>
-    bar:{{ this.bar }}<br />
-    beet:{{ this.beat }}
+  <div class="game_container">
+    <div class="side">
+      <div class="index_chord">Chord</div>
+      <div class="index_beat">Kick</div>
+    </div>
+    <div class="score">
+      <chords :now_bar="this.bar"></chords>
+      <Beats :now_beats="this.beat" :edit="this.edit"></Beats>
+      <button v-on:click="start">start</button>
+      bar:{{ this.bar }}<br />
+      beet:{{ this.beat }}
+    </div>
   </div>
 </template>
 <script>
@@ -135,5 +141,21 @@ export default {
 <style scoped>
 .brank {
   /* margin: 100px; */
+}
+.side {
+  display: flex;
+    flex-grow: 1;
+  flex-direction: column;
+}
+.score{
+    flex-grow: 4;
+}
+.game_container {
+  display: flex;
+}
+.index_chord {
+  /*height: 90px;*/
+}
+.index_beat {
 }
 </style>
