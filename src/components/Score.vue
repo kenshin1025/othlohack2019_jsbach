@@ -1,10 +1,13 @@
 <template>
-    <div id="score">
-        <chords></chords>
-        <button v-on:click="start">start</button>
-        bar:{{this.bar}}<br>
-        beet:{{this.beat}}
-    </div>
+  <div class="container">
+    <div class = "brank"></div>
+      <div id="score">
+          <chords></chords>
+          <button v-on:click="start">▶</button>
+          {{this.bar + 1}}小節
+          {{this.beat + 1}}拍目
+      </div>
+  </div>
 </template>
 <script>
     import Chords from '../components/Chords'
@@ -54,7 +57,7 @@
             return {
                 bar: -1,//小節
                 beat: 7,//八分音符,
-                bpm: 180,//テンポ
+                bpm: 120,//テンポ
                 timeCounter: null,
                 selected_chords: ["C", "C", "C", "C"]
             };
@@ -103,3 +106,10 @@
         }
     };
 </script>>
+
+<style scoped>
+  .brank{
+    /* margin: 100px; */
+  }
+
+</style>

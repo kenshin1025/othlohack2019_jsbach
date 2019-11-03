@@ -1,8 +1,8 @@
 <template>
     <div :class="set_bg">
-        <button v-on:click="up_chord">上</button>
+        <div v-on:click="up_chord" class="button">▲</div>
         <p>{{chord_name}}</p>
-        <button v-on:click="down_chord">下</button>
+        <div v-on:click="down_chord" class="button">▼</div>
     </div>
 </template>
 
@@ -46,9 +46,23 @@
 
 <style scoped>
     .bg_warm{
-        background-color: #d16b16;
+        height: 90PX;
+        width: 25%;
+        background: #1089ff;/*#d16b16; */
+        transition: all 300ms 0s ease;
+        border-left: solid 1px #FFFFFF;
+        color: #23374d;
     }
     .bg_cold{
-        background-color: #0168b3
+        background: #23374d;/*#0168b3;*/
+        width: 25%;
+        transition: all 300ms 0s ease;
+        border-left: solid 1px #FFFFFF;
+        color: #e5e5e5;
+    }
+    .button{
+      background-color: rgba(255,0,0,0);
+      cursor: pointer;
+      user-select: none;
     }
 </style>
