@@ -2,7 +2,6 @@
   <div>
     <h3>chord</h3>
     <draggable
-      v-if="edit"
       class="flex"
       v-model="itemsChord"
       group="myGroup"
@@ -11,25 +10,17 @@
       @end="drag = false"
       :options="options"
     >
-      <div class="item" v-for="(item, i) in itemsChord" :key="item.id">
+      <div class="item" v-for="(item, i) in itemsChord" :key="i">
         <BeatPieces
           class="beatPiece"
           :notes="item.notes"
           :beatType="item.type"
+          :items = itemsChord
           :now_beats="now_beats"
+          :index="i"
         ></BeatPieces>
       </div>
     </draggable>
-    <div class="flex">
-      <div
-        v-if="!edit"
-        class="item"
-        v-for="(note, i) in chordArray"
-        :key="note.id"
-      >
-        <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
-      </div>
-    </div>
 
     <h3>OHihat</h3>
     <draggable
