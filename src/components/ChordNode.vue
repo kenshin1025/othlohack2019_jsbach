@@ -1,9 +1,9 @@
 <template>
-    <div :class="set_bg">
-        <div v-on:click="up_chord" class="button">▲</div>
-        <p>{{chord_name}}</p>
-        <div v-on:click="down_chord" class="button">▼</div>
-    </div>
+  <div :class="set_bg" class="chord_size">
+    <div v-on:click="up_chord" class="button">▲</div>
+    <p>{{ chord_name }}</p>
+    <div v-on:click="down_chord" class="button">▼</div>
+  </div>
 </template>
 
 <script>
@@ -52,24 +52,26 @@ export default {
 </script>
 
 <style scoped>
-    .bg_warm{
-        height: 90PX;
-        width: 25%;
-        background: #1089ff;/*#d16b16; */
-        transition: all 300ms 0s ease;
-        border-left: solid 1px #FFFFFF;
-        color: #23374d;
-    }
-    .bg_cold{
-        background: #23374d;/*#0168b3;*/
-        width: 25%;
-        transition: all 300ms 0s ease;
-        border-left: solid 1px #FFFFFF;
-        color: #e5e5e5;
-    }
-    .button{
-      background-color: rgba(255,0,0,0);
-      cursor: pointer;
-      user-select: none;
-    }
+.chord_size {
+  width: 25%;
+  transition: all 300ms 0s ease;
+  border-left: solid 1px #ffffff;
+}
+.bg_warm {
+  background: #1089ff; /*#d16b16; */
+  color: #23374d;
+}
+.bg_cold {
+  background: #23374d; /*#0168b3;*/
+  color: #e5e5e5;
+}
+.button {
+  background-color: rgba(255, 0, 0, 0);
+  cursor: pointer;
+  user-select: none;
+}
+.active {
+  background: white;
+  color: #23374d;
+}
 </style>
