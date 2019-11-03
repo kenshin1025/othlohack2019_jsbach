@@ -8,6 +8,7 @@
       <chords :now_bar="this.bar"></chords>
       <Beats :now_beats="this.beat" :edit="this.edit"></Beats>
       <button v-on:click="start">start</button>
+        <button v-on:click="stop">stop</button>
       bar:{{ this.bar }}<br />
       beet:{{ this.beat }}
     </div>
@@ -66,7 +67,6 @@ export default {
   },
   data() {
     return {
-      edit: true,
       bar: 0, //小節
       beat: 0, //八分音符,
       bpm: 180, //テンポ
@@ -109,15 +109,20 @@ export default {
       }
     },
     start: function() {
-      this.edit = !this.edit;
       let self = this;
       let interval = 60 / this.bpm / 2;
-      console.log(interval);
+      // console.log(interval);
+        clearInterval(this.timeCounter);
+        this.beat = 0;
+        this.bar = 0;
       this.timeCounter = setInterval(function() {
         self.count();
       }, interval * 1000);
       this.timerOn = true; //timerがOFFであることを状態として保持
     },
+      stop(){
+          clearInterval(this.timeCounter);
+      },
     playChord(chord) {
       Object.keys(SOUNDS).forEach(function(key) {
         SOUNDS[key].forEach(function(audio) {
