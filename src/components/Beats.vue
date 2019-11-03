@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div>
-      <h3>Kick</h3>
+    <div class="inline">
+      <!-- <h3>Kick</h3> -->
       <draggable
         v-if="edit"
         class="flex"
@@ -117,6 +117,7 @@ export default {
 <style scoped>
 .flex {
   display: flex;
+  /* width: 200%; */
 }
 
 .item {
@@ -127,6 +128,8 @@ export default {
   /*border: 1px solid #7f7f7f;*/
   /*border-radius: 10px;*/
   /*background-color: #ffffff;*/
+  width: 25%;
+padding: 3px;
 }
 
 .item:hover {
@@ -135,5 +138,9 @@ export default {
 
 .item:active {
   cursor: grabbing;
+}
+
+.inline{
+  /* float: left; */
 }
 </style>

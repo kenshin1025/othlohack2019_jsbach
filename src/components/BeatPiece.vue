@@ -27,9 +27,11 @@ export default {
 <style scoped>
 .beatPiece {
   display: flex;
+
 }
 
 .flex_item {
   flex-grow: 1;
+  border-left: solid 1px #fff;
 }
 </style>

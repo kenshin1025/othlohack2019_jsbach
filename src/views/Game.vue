@@ -1,5 +1,5 @@
 <template>
-  <div class="game">
+  <div class="game_container">
     {{ $store.state.selecting_chords }}
     <score></score>
   </div>
@@ -16,4 +16,6 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
