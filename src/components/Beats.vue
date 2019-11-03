@@ -15,15 +15,15 @@
           class="beatPiece"
           :notes="item.notes"
           :beatType="item.type"
-          :items = "itemsOHihat"
+          :items = itemsOHihat
           :now_beats="now_beats"
+          :index="i"
         ></BeatPieces>
       </div>
     </draggable>
 
     <h3>CHihat</h3>
     <draggable
-      v-if="edit"
       class="flex"
       v-model="itemsCHihat"
       group="myGroup"
@@ -32,24 +32,20 @@
       @end="drag = false"
       :options="options"
     >
-      <div class="item" v-for="(item, i) in itemsCHihat" :key="item.id">
+      <div class="item" v-for="(item, i) in itemsCHihat" :key="i">
         <BeatPieces
           class="beatPiece"
           :notes="item.notes"
           :beatType="item.type"
+          :items = itemsCHihat
           :now_beats="now_beats"
+          :index="i"
         ></BeatPieces>
       </div>
     </draggable>
-    <div class="flex">
-      <div v-if="!edit" class="item" v-for="(note, i) in chihatArray" :key="note.id">
-        <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
-      </div>
-    </div>
 
     <h3>Snare</h3>
     <draggable
-      v-if="edit"
       class="flex"
       v-model="itemsSnare"
       group="myGroup"
@@ -58,24 +54,20 @@
       @end="drag = false"
       :options="options"
     >
-      <div class="item" v-for="(item, i) in itemsSnare" :key="item.id">
+      <div class="item" v-for="(item, i) in itemsSnare" :key="i">
         <BeatPieces
           class="beatPiece"
           :notes="item.notes"
           :beatType="item.type"
+          :items = itemsSnare
           :now_beats="now_beats"
+          :index="i"
         ></BeatPieces>
       </div>
     </draggable>
-    <div class="flex">
-      <div v-if="!edit" class="item" v-for="(note, i) in chihatArray" :key="note.id">
-        <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
-      </div>
-    </div>
 
     <h3>Kick</h3>
     <draggable
-      v-if="edit"
       class="flex"
       v-model="itemsKick"
       group="myGroup"
@@ -84,22 +76,19 @@
       @end="drag = false"
       :options="options"
     >
-      <div class="item" v-for="(item, i) in itemsKick" :key="item.id">
+      <div class="item" v-for="(item, i) in itemsKick" :key="i">
         <BeatPieces
           class="beatPiece"
           :notes="item.notes"
           :beatType="item.type"
+          :items = itemsKick
           :now_beats="now_beats"
+          :index="i"
         ></BeatPieces>
       </div>
     </draggable>
-    <div class="flex">
-      <div v-if="!edit" class="item" v-for="(note, i) in chihatArray" :key="note.id">
-        <BeatsNode :sound="note" :is_active="i === now_beats"></BeatsNode>
-      </div>
-    </div>
 
-    <h3>グループB</h3>
+    <h3>ぴーす</h3>
     <draggable
       class="flex"
       v-model="itemsB"
@@ -109,12 +98,14 @@
       @end="drag = false"
       :options="options"
     >
-      <div class="item" v-for="item in itemsB" :key="item.id">
+      <div class="item" v-for="(item,i) in itemsB" :key="item.id">
         <BeatPieces
           class="beatPiece"
           :notes="item.notes"
           :beatType="item.type"
+          :items = "null"
           :now_beats="now_beats"
+          :index="i"
         ></BeatPieces>
       </div>
     </draggable>
