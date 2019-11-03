@@ -1,5 +1,8 @@
 <template>
   <div class="chords">
+    <div class="index">
+      Chord
+    </div>
     <template v-for="i in 4">
       <ChordNode
         class="flex_item"
@@ -24,6 +27,9 @@ export default {
 <style scoped>
 .chords {
   display: flex;
+}
+.index{
+  font-size: x-large;
 }
 .flex_item {
   flex-grow: 1;

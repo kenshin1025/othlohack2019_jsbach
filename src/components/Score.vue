@@ -1,9 +1,9 @@
 <template>
   <div class="game_container">
-    <div class="side">
+    <!-- <div class="side">
       <div class="index_chord">Chord</div>
       <div class="index_beat">Kick</div>
-    </div>
+    </div> -->
     <div class="score">
       <chords :now_bar="this.bar"></chords>
       <Beats :now_beats="this.beat"></Beats>
@@ -160,11 +160,11 @@ export default {
 .brank {
   /* margin: 100px; */
 }
-.side {
+/* .side {
   display: flex;
     flex-grow: 1;
   flex-direction: column;
-}
+} */
 .score{
     flex-grow: 4;
 }
