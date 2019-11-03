@@ -188,9 +188,12 @@ export default {
       ohihatArray: [],
       itemsB: [
         { id: "0", type: "kick", notes: [0, 1] },
-        { id: "1", type: "kick", notes: [1, 0, 1, 0, 1, 0, 1, 0] },
-        { id: "2", type: "kick", notes: [0, 1, 0, 1] },
-        { id: "3", type: "kick", notes: [1, 0, 1, 0] }
+        { id: "1", type: "kick", notes: [1, 1] },
+        { id: "2", type: "kick", notes: [0, 0] },
+        { id: "3", type: "kick", notes: [0, 1, 0, 1] },
+        { id: "4", type: "kick", notes: [1, 0, 1, 0] },
+        { id: "5", type: "kick", notes: [1, 0, 1, 0, 1, 0, 1, 0] },
+        { id: "6", type: "kick", notes: [1, 0, 0, 1, 0, 0, 1, 0] },
       ],
       kickNotes: [0, 0, 0, 0, 0, 0, 0, 0],
       snareNotes: [0, 0, 0, 0, 0, 0, 0, 0],

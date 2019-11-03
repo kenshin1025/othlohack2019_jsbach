@@ -13,8 +13,8 @@
         <input type="range" min="80" max="200" step="1" v-model="bpm">
         200
         {{bpm}}
-      bar:{{ this.bar }}<br />
-      beet:{{ this.beat }}
+      <!-- bar:{{ this.bar }}<br />
+      beet:{{ this.beat }} -->
     </div>
   </div>
 </template>
