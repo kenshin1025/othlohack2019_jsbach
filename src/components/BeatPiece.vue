@@ -24,13 +24,12 @@ export default {
 </script>
 
 <style scoped>
-.beatPiece {
-  display: flex;
+/*.beatPiece {*/
+  /*display: flex;*/
+/*}*/
 
-}
-
-.flex_item {
-  flex-grow: 1;
-  border-left: solid 1px #fff;
-}
+/*.flex_item {*/
+  /*flex-grow: 1;*/
+  /*border-left: solid 1px #fff;*/
+/*}*/
 </style>

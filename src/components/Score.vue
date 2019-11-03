@@ -4,15 +4,14 @@
       <div class="index_chord">Chord</div>
       <div class="index_beat">Kick</div>
     </div>
-  <div id="score">
-
-    <chords :now_bar="this.bar"></chords>
-    <Beats :now_beats="this.beat" :edit="this.edit"></Beats>
-    <button v-on:click="start">start</button>
-    bar:{{ this.bar }}<br />
-    beet:{{ this.beat }}
+    <div class="score">
+      <chords :now_bar="this.bar"></chords>
+      <Beats :now_beats="this.beat" :edit="this.edit"></Beats>
+      <button v-on:click="start">start</button>
+      bar:{{ this.bar }}<br />
+      beet:{{ this.beat }}
+    </div>
   </div>
-</div>
 </template>
 <script>
 import Chords from "../components/Chords";
@@ -140,20 +139,23 @@ export default {
 </script>
 
 <style scoped>
-  .brank{
-    /* margin: 100px; */
-  }
-.side{
+.brank {
+  /* margin: 100px; */
+}
+.side {
   display: flex;
+    flex-grow: 1;
   flex-direction: column;
 }
-.game_container{
+.score{
+    flex-grow: 4;
+}
+.game_container {
   display: flex;
 }
-.index_chord{
-  height: 90px;
+.index_chord {
+  /*height: 90px;*/
 }
-.index_beat{
-
+.index_beat {
 }
 </style>
