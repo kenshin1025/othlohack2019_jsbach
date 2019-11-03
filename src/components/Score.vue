@@ -6,9 +6,13 @@
     </div>
     <div class="score">
       <chords :now_bar="this.bar"></chords>
-      <Beats :now_beats="this.beat" :edit="this.edit"></Beats>
+      <Beats :now_beats="this.beat"></Beats>
       <button v-on:click="start">start</button>
         <button v-on:click="stop">stop</button>
+        80
+        <input type="range" min="80" max="200" step="1" v-model="bpm">
+        200
+        {{bpm}}
       bar:{{ this.bar }}<br />
       beet:{{ this.beat }}
     </div>
@@ -70,10 +74,17 @@ export default {
       bar: 0, //小節
       beat: 0, //八分音符,
       bpm: 180, //テンポ
-      timeCounter: null
+      timeCounter: null,
+        isStarting: false,
     };
   },
-
+    watch:{
+      bpm:function(){
+            if(this.isStarting){
+                this.start();
+            }
+        }
+    },
   beforeRouteEnter(to, from, next) {
     next(vm => {
       vm.initialize(); // 初期化処理
@@ -109,6 +120,7 @@ export default {
       }
     },
     start: function() {
+        this.isStarting = true;
       let self = this;
       let interval = 60 / this.bpm / 2;
       // console.log(interval);
@@ -121,6 +133,7 @@ export default {
       this.timerOn = true; //timerがOFFであることを状態として保持
     },
       stop(){
+          this.isStarting = false;
           clearInterval(this.timeCounter);
       },
     playChord(chord) {
